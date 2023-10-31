@@ -52,11 +52,22 @@ $(document).ready(function(){
                 const estado = json.uf
                 const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`
                 $('#endereco').val(endereco)
-
-            setTimeout(function(){
-            $(botao).find('i').removeClass('d-none')
-            $(botao).find('span').addClass('d-none')
-            }, 1000)
         })
+        .catch(function(erro){
+            alert("ocorreu um erro, tente novamente , mais tarde.")
+        })
+        .finally(function(){
+            setTimeout(function(){
+                $(botao).find('i').removeClass('d-none')
+                $(botao).find('span').addClass('d-none')
+                }, 1000)
+        })
+    })
+
+    $('#formulario-pedido').submit(function(evento){
+        evento.preventDefault()
+        if($('#nome').val().length == 0){
+            throw new Error('Digite o nome')
+        }
     })
 })
