@@ -21,4 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
         following.innerHTML = json.following
         profileLink.href = json.html_url
     })
+    .catch(function(erro){
+        alert("ocorreu um erro, tente novamente , mais tarde.")
+    })
 })
